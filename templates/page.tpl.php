@@ -80,7 +80,9 @@
         <?php if (!empty($page['header'])): ?>
           <?php print render($page['header']); ?>
         <?php endif; ?>
+        <?php if (!empty($variables['site_name'])): ?>
           <h1 class="header__sitename"><a href="/" title="Home" rel="home"><span><?php print render($variables['site_name']); ?></span></a></h1>
+        <?php endif; ?>
       </div>
     </div>
   </div>
@@ -103,17 +105,19 @@
         <?php print render($tabs); ?>
       <?php endif; ?>
     </section>
+    <section class="col-sm-4">
+      <?php if (!empty($page['sidebar_left'])): ?>
+        <aside>
+          <?php print render($page['sidebar_left']); ?>
+        </aside> 
+      <?php endif; ?>
+    </section>
     <section class="col-sm-8">
       <?php if (!empty($page['top_bar'])): ?>
         <?php print render($page['top_bar']); ?>
       <?php endif; ?>
       <?php print render($page['content']); ?>
     </section>
-    <?php if (!empty($page['sidebar_right'])): ?>
-      <aside class="col-sm-4" role="complementary">
-        <?php print render($page['sidebar_right']); ?>
-      </aside>  <!-- /#sidebar-right -->
-    <?php endif; ?>
   </div>
 </div>
 <footer class="footer">
